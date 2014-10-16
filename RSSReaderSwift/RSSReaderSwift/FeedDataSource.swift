@@ -54,7 +54,4 @@ class ArticleDataSource : NSObject, UICollectionViewDelegate, UICollectionViewDa
         
         return CGSizeMake(collectionView.frame.width, collectionView.frame.height)
     }
-    
-    // MARK: UICollectionViewDelegate
-    
 }

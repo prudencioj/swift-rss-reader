@@ -8,13 +8,27 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class FeedViewController: UIViewController {
 
     var dataSource : ArticleDataSource?
     var collectionView : UICollectionView?
+    var feedManager : FeedManager = FeedManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    
+        defineSubviews()
+        
+        defineConstraints()
+        
+        refreshFeed()
+    }
+    
+    // MARK: Layout
+    
+    func defineSubviews() {
+        
+        // setup collection view
         
         var layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .Horizontal
@@ -22,9 +36,14 @@ class ViewController: UIViewController {
         collectionView = UICollectionView(frame: CGRectZero,collectionViewLayout: layout)
         collectionView?.pagingEnabled = true
         
-        dataSource = ArticleDataSource(collectionView: collectionView!)
-        
         view.addSubview(collectionView!)
+        
+        // setup data source responsible of populating the collection view
+        
+        dataSource = ArticleDataSource(collectionView: collectionView!)
+    }
+    
+    func defineConstraints() {
         
         collectionView?.setTranslatesAutoresizingMaskIntoConstraints(false)
         
@@ -32,20 +51,16 @@ class ViewController: UIViewController {
         let verticalConstraint = NSLayoutConstraint.constraintsWithVisualFormat("V:|[collectionView]|", options: nil, metrics: nil, views: ["collectionView" : collectionView!])
         
         view.addConstraints(horizontalConstraint+verticalConstraint)
+    }
+    
+    // MARK: Manage feed
+    
+    func refreshFeed() {
         
-        
-        let url = NSURL(string: "https://ajax.googleapis.com/ajax/services/feed/load?v=2.0&q=https://betting.betfair.com/index.xml&num=20")
-        let request = NSURLRequest(URL: url!)
-        
-        NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()) {(response, data, error) in
+        feedManager.load( { (articles: Array<Article>) -> () in
             
-            var jsonErrorOptional: NSError?
-            let jsonOptional: AnyObject! = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(0), error: &jsonErrorOptional)
-            
-            var articles = FeedParser.parseFeed(jsonOptional)
-            
+            println(articles)
             self.dataSource?.refresh(articles)
-        }
+        })
     }
 }
-
