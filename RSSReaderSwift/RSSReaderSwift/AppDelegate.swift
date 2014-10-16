@@ -3,7 +3,7 @@
 //  RSSReaderSwift
 //
 //  Created by joaoprudencio on 22/09/14.
-//  Copyright (c) 2014 joaoprudencio. All rights reserved.
+//  Copyright (c) 2014 Blip. All rights reserved.
 //
 
 import UIKit
@@ -15,8 +15,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+
+        self.window = UIWindow()
+        self.window?.makeKeyAndVisible()
+        self.window?.frame = UIScreen.mainScreen().bounds
         self.window?.rootViewController = ViewController()
+    
         return true
     }
 

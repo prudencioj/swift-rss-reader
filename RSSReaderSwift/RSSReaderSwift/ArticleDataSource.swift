@@ -3,7 +3,7 @@
 //  RSSReaderSwift
 //
 //  Created by joaoprudencio on 22/09/14.
-//  Copyright (c) 2014 joaoprudencio. All rights reserved.
+//  Copyright (c) 2014 Blip. All rights reserved.
 //
 
 import UIKit
@@ -11,6 +11,7 @@ import UIKit
 class ArticleDataSource : NSObject, UICollectionViewDelegate, UICollectionViewDataSource {
 
     weak var collectionView : UICollectionView?
+    var articles: Array<Article> = Array()
     
     init(collectionView: UICollectionView) {
         super.init()
@@ -25,25 +26,33 @@ class ArticleDataSource : NSObject, UICollectionViewDelegate, UICollectionViewDa
         self.collectionView?.registerClass(ArticleCollectionViewCell.self, forCellWithReuseIdentifier: "ArticleCollectionViewCell")
     }
     
+    func refresh(articles: Array<Article>) {
+        
+        self.articles = articles
+        self.collectionView?.reloadData()
+    }
+    
     // MARK: UICollectionViewDataSource
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        return 20
+        return self.articles.count
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
         var collectionViewCell : ArticleCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier("ArticleCollectionViewCell", forIndexPath: indexPath) as ArticleCollectionViewCell
         
-        collectionViewCell.label?.text = "title"
+        var article = self.articles[indexPath.row]
+        
+        collectionViewCell.label.text = article.title
         
         return collectionViewCell
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         
-        return CGSizeMake(collectionView.frame.width, 100)
+        return CGSizeMake(collectionView.frame.width, collectionView.frame.height)
     }
     
     // MARK: UICollectionViewDelegate

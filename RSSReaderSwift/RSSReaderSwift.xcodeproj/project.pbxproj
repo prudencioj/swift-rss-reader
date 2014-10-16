@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		499985AA19EC93AE00C3DE46 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499985A919EC93AE00C3DE46 /* Article.swift */; };
+		49D70FD019EF34720009399B /* FeedParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D70FCF19EF34720009399B /* FeedParser.swift */; };
 		49E0219519D038460085C513 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E0219419D038460085C513 /* AppDelegate.swift */; };
 		49E0219719D038460085C513 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E0219619D038460085C513 /* ViewController.swift */; };
 		49E0219C19D038460085C513 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49E0219B19D038460085C513 /* Images.xcassets */; };
@@ -26,6 +28,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		499985A919EC93AE00C3DE46 /* Article.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
+		49D70FCF19EF34720009399B /* FeedParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedParser.swift; sourceTree = "<group>"; };
 		49E0218F19D038460085C513 /* RSSReaderSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RSSReaderSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49E0219319D038460085C513 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		49E0219419D038460085C513 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -78,6 +82,8 @@
 			isa = PBXGroup;
 			children = (
 				49E0219419D038460085C513 /* AppDelegate.swift */,
+				49D70FCF19EF34720009399B /* FeedParser.swift */,
+				499985A919EC93AE00C3DE46 /* Article.swift */,
 				49E0219619D038460085C513 /* ViewController.swift */,
 				49E021E419D092330085C513 /* ArticleDataSource.swift */,
 				49E021E219D0699A0085C513 /* ArticleCollectionViewCell.swift */,
@@ -210,10 +216,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49D70FD019EF34720009399B /* FeedParser.swift in Sources */,
 				49E021E319D0699A0085C513 /* ArticleCollectionViewCell.swift in Sources */,
 				49E021E519D092330085C513 /* ArticleDataSource.swift in Sources */,
 				49E0219719D038460085C513 /* ViewController.swift in Sources */,
 				49E0219519D038460085C513 /* AppDelegate.swift in Sources */,
+				499985AA19EC93AE00C3DE46 /* Article.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -388,6 +396,7 @@
 				49E021B019D038460085C513 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		49E021B119D038460085C513 /* Build configuration list for PBXNativeTarget "RSSReaderSwiftTests" */ = {
 			isa = XCConfigurationList;
@@ -396,6 +405,7 @@
 				49E021B319D038460085C513 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
