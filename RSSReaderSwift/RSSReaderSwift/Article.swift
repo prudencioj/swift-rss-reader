@@ -9,5 +9,4 @@
 struct Article {
     
     var title: String
-    
 }
