@@ -16,7 +16,7 @@ class FeedViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+            
         defineSubviews()
         
         defineConstraints()
@@ -32,6 +32,8 @@ class FeedViewController: UIViewController {
         
         var layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .Horizontal
+        layout.minimumInteritemSpacing = 0
+        layout.minimumLineSpacing = 0
         
         collectionView = UICollectionView(frame: CGRectZero,collectionViewLayout: layout)
         collectionView?.pagingEnabled = true

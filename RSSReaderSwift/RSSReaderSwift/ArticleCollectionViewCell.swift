@@ -34,6 +34,8 @@ class ArticleCollectionViewCell: UICollectionViewCell {
         label.numberOfLines = 0
         label.textAlignment = .Center
         
+        label.backgroundColor = UIColor.brownColor()
+        
         contentView.addSubview(label)
     }
     
@@ -42,6 +44,6 @@ class ArticleCollectionViewCell: UICollectionViewCell {
         label.setTranslatesAutoresizingMaskIntoConstraints(false)
         
         contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-10-[title]-10-|", options: nil, metrics: nil, views: ["title" : label]))
-        contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-100-[title]", options: nil, metrics: nil, views: ["title" : label]))
+        contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-100-[title]-|", options: nil, metrics: nil, views: ["title" : label]))
     }
 }
