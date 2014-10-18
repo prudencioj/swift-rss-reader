@@ -45,7 +45,7 @@ class ArticleCollectionViewCell: UICollectionViewCell {
         label?.numberOfLines = 0
         label?.textAlignment = .Center
         
-        label?.backgroundColor = UIColor.brownColor()
+        label?.backgroundColor = UIColor.grayColor()
         
         contentView.addSubview(label!)
     }

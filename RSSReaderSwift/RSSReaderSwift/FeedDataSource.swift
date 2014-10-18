@@ -20,7 +20,7 @@ class ArticleDataSource : NSObject, UICollectionViewDelegate, UICollectionViewDa
         
         self.collectionView = collectionView
         
-        self.collectionView?.backgroundColor = UIColor.redColor()
+        self.collectionView?.backgroundColor = UIColor.darkGrayColor()
 
         self.collectionView?.delegate = self
         self.collectionView?.dataSource = self

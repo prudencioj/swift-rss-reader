@@ -10,6 +10,8 @@ import UIKit
 
 class FeedViewController: UIViewController {
 
+    // using always optionals don't seem to be the best option
+    
     var collectionView : UICollectionView?
     var dataSource : ArticleDataSource?
     var feedManager : FeedManager?
