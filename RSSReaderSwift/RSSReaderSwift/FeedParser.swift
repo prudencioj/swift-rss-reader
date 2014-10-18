@@ -22,8 +22,8 @@ class FeedParser {
                     
                     if let jsonEntries = jsonFeed["entries"] as AnyObject? as? Array<AnyObject> {
                         
-                        for var i = 0 ; i < jsonEntries.count ; ++i {
-                            
+                        for i in 0..<jsonEntries.count {
+
                             if let entriesDictionary = jsonEntries[i] as AnyObject? as? Dictionary<String, AnyObject> {
                                 
                                 if let title = entriesDictionary["title"] as AnyObject? as? String {
