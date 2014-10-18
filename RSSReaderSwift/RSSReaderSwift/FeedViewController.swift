@@ -10,9 +10,9 @@ import UIKit
 
 class FeedViewController: UIViewController {
 
-    var dataSource : ArticleDataSource?
     var collectionView : UICollectionView?
-    var feedManager : FeedManager = FeedManager()
+    var dataSource : ArticleDataSource?
+    var feedManager : FeedManager?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +30,7 @@ class FeedViewController: UIViewController {
         
         // setup collection view
         
-        var layout = UICollectionViewFlowLayout()
+        let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .Horizontal
         layout.minimumInteritemSpacing = 0
         layout.minimumLineSpacing = 0
@@ -59,7 +59,9 @@ class FeedViewController: UIViewController {
     
     func refreshFeed() {
         
-        feedManager.load( { (articles: Array<Article>) -> () in
+        feedManager = FeedManager()
+        
+        feedManager?.load( { (articles: Array<Article>) -> () in
             
             println(articles)
             self.dataSource?.refresh(articles)

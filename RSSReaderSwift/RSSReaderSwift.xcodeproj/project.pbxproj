@@ -84,9 +84,9 @@
 			isa = PBXGroup;
 			children = (
 				49E1BA3519F06E3600CE7652 /* network */,
-				49E1BA3419F06C8A00CE7652 /* controller */,
-				49E1BA3319F06C8100CE7652 /* view */,
-				49E1BA3219F06C6900CE7652 /* model */,
+				49E1BA3419F06C8A00CE7652 /* controllers */,
+				49E1BA3319F06C8100CE7652 /* views */,
+				49E1BA3219F06C6900CE7652 /* models */,
 				49E0219419D038460085C513 /* AppDelegate.swift */,
 				49E0219B19D038460085C513 /* Images.xcassets */,
 				49E0219219D038460085C513 /* Supporting Files */,
@@ -119,29 +119,29 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		49E1BA3219F06C6900CE7652 /* model */ = {
+		49E1BA3219F06C6900CE7652 /* models */ = {
 			isa = PBXGroup;
 			children = (
 				499985A919EC93AE00C3DE46 /* Article.swift */,
 			);
-			name = model;
+			name = models;
 			sourceTree = "<group>";
 		};
-		49E1BA3319F06C8100CE7652 /* view */ = {
+		49E1BA3319F06C8100CE7652 /* views */ = {
 			isa = PBXGroup;
 			children = (
 				49E021E219D0699A0085C513 /* ArticleCollectionViewCell.swift */,
 			);
-			name = view;
+			name = views;
 			sourceTree = "<group>";
 		};
-		49E1BA3419F06C8A00CE7652 /* controller */ = {
+		49E1BA3419F06C8A00CE7652 /* controllers */ = {
 			isa = PBXGroup;
 			children = (
 				49E0219619D038460085C513 /* FeedViewController.swift */,
 				49E021E419D092330085C513 /* FeedDataSource.swift */,
 			);
-			name = controller;
+			name = controllers;
 			sourceTree = "<group>";
 		};
 		49E1BA3519F06E3600CE7652 /* network */ = {
