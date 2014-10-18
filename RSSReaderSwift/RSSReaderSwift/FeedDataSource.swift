@@ -10,8 +10,10 @@ import UIKit
 
 class ArticleDataSource : NSObject, UICollectionViewDelegate, UICollectionViewDataSource {
 
+    let articleCellReuseIdentifier = "ArticleCollectionViewCell"
+    
     weak var collectionView : UICollectionView?
-    var articles: Array<Article> = Array()
+    var articles: Array<Article>?
     
     init(collectionView: UICollectionView) {
         super.init()
@@ -23,29 +25,29 @@ class ArticleDataSource : NSObject, UICollectionViewDelegate, UICollectionViewDa
         self.collectionView?.delegate = self
         self.collectionView?.dataSource = self
         
-        self.collectionView?.registerClass(ArticleCollectionViewCell.self, forCellWithReuseIdentifier: "ArticleCollectionViewCell")
+        self.collectionView?.registerClass(ArticleCollectionViewCell.self, forCellWithReuseIdentifier: articleCellReuseIdentifier)
     }
     
     func refresh(articles: Array<Article>) {
         
         self.articles = articles
-        self.collectionView?.reloadData()
+        collectionView?.reloadData()
     }
     
     // MARK: UICollectionViewDataSource
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        return self.articles.count
+        return articles? == nil ? 0 : articles!.count
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
-        var collectionViewCell : ArticleCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier("ArticleCollectionViewCell", forIndexPath: indexPath) as ArticleCollectionViewCell
+        let collectionViewCell : ArticleCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier(articleCellReuseIdentifier, forIndexPath: indexPath) as ArticleCollectionViewCell
         
-        var article = self.articles[indexPath.row]
+        let article = articles?[indexPath.row]
         
-        collectionViewCell.label.text = article.title
+        collectionViewCell.label?.text = article?.title
         
         return collectionViewCell
     }
