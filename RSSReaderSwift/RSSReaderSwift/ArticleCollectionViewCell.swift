@@ -10,7 +10,11 @@ import UIKit
 
 class ArticleCollectionViewCell: UICollectionViewCell {
     
-    var label : UILabel = UILabel()
+    // is there a better way to define constants?
+    let horizontalMargin = 10
+    let topMargin = 10
+    
+    var label : UILabel?
     
     // MARK: Lifecycle
     
@@ -21,29 +25,41 @@ class ArticleCollectionViewCell: UICollectionViewCell {
         
         defineConstraints()
     }
-
+    
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
+    
+    // MARK: Override
+    
+    override var reuseIdentifier: String { get {
+            return "ArticleCollectionViewCell"
+        }}
     
     // MARK: Layout
     
     func defineSubviews() {
         
-        label.lineBreakMode = .ByWordWrapping
-        label.numberOfLines = 0
-        label.textAlignment = .Center
+        label = UILabel()
+        label?.lineBreakMode = .ByWordWrapping
+        label?.numberOfLines = 0
+        label?.textAlignment = .Center
         
-        label.backgroundColor = UIColor.brownColor()
+        label?.backgroundColor = UIColor.brownColor()
         
-        contentView.addSubview(label)
+        contentView.addSubview(label!)
     }
     
     func defineConstraints() {
         
-        label.setTranslatesAutoresizingMaskIntoConstraints(false)
+        label?.setTranslatesAutoresizingMaskIntoConstraints(false)
         
-        contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-10-[title]-10-|", options: nil, metrics: nil, views: ["title" : label]))
-        contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-100-[title]-|", options: nil, metrics: nil, views: ["title" : label]))
+        let constraintMetrics = ["horizontalMargin": horizontalMargin, "topMargin": topMargin]
+        let constraintViews = ["title": label!]
+        
+        let horizontalConstraints = NSLayoutConstraint.constraintsWithVisualFormat("H:|-horizontalMargin-[title]-horizontalMargin-|", options: nil, metrics: constraintMetrics, views: constraintViews)
+        let verticalConstraints = NSLayoutConstraint.constraintsWithVisualFormat("V:|-topMargin-[title]-|", options: nil, metrics: constraintMetrics, views: constraintViews)
+        
+        contentView.addConstraints(horizontalConstraints+verticalConstraints)
     }
 }
